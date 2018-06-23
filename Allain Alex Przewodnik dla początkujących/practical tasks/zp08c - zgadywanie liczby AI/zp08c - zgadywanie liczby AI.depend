@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503944543 source:e:\programowanie\zp08c - zgadywanie liczby ai\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

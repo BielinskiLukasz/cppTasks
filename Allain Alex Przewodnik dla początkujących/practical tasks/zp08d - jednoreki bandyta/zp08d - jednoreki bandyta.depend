@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1503948255 source:e:\programowanie\zp08d - jednoreki bandyta\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
