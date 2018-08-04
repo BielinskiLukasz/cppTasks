@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1504475008 source:e:\programowanie\zp10b - tablica 50 liczb\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+

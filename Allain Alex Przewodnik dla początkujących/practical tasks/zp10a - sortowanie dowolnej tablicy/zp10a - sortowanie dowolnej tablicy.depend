@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1504473373 source:e:\programowanie\zp10a - sortowanie dowolnej tablicy\main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+
