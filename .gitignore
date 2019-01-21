@@ -313,7 +313,17 @@ cmake-build-*/
 *.iws
 
 # IntelliJ
+.idea/
+*.iml
+# Build results
 out/
+target/
+#Merge temp files
+*.orig
+# Logs
+logs/
+tools/
+*.log
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
