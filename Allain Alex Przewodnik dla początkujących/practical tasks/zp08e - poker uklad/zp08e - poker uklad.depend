@@ -1,7 +1,0 @@
-# depslib dependency file v1.0
-1504211653 source:e:\programowanie\zp08e - poker uklad\main.cpp
-	<iostream>
-	<cstdlib>
-	<ctime>
-	<string>
-

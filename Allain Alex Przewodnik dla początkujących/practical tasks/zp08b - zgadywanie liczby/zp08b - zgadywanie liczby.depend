@@ -1,6 +1,0 @@
-# depslib dependency file v1.0
-1503943022 source:e:\programowanie\zp08b - zgadywanie liczby\main.cpp
-	<iostream>
-	<cstdlib>
-	<ctime>
-
