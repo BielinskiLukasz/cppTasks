@@ -20,17 +20,17 @@ enum colorLexus selectColor();
 
 void helloInLoops();
 
+/**
+ * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
+ */
 int main() {
-    // task01
-    // Utworz funkcje main wyswietlajaca napis “Hello” (wykorzystaj biblioteke iostream).
+    // I. Utworz funkcje main wyswietlajaca napis “Hello” (wykorzystaj biblioteke iostream).
     cout << "Hello" << endl;
 
-    // task02
-    // Przedstaw w programie 3 metody zaznaczenia kodu, który bedzie traktowany jak komentarz.
+    // II. Przedstaw w programie 3 metody zaznaczenia kodu, który bedzie traktowany jak komentarz.
     comment();
 
-    // task03
-    // W funkcji main zdefiniuj wszystkie typy proste wystepujace w jezyku C++. Nastepnie napisz program łaczacy
+    // III. W funkcji main zdefiniuj wszystkie typy proste wystepujace w jezyku C++. Nastepnie napisz program łaczacy
     // wszystkie zmienne w jeden ciag wyjsciowy i wyswietl go na ekranie.
     short a = 1;
     int b = 2;
@@ -42,23 +42,19 @@ int main() {
 
     cout << a << b << c << d << e << f << i << endl;
 
-    // task04
-    // Napisz program wczytujacy z konsoli trzy liczby i wypisujaacy na ekranie najwieksza z nich. Mozna uzyc najwyzej
-    // dwóch if-ów (bez fraz else lub else if).
+    // IV. Napisz program wczytujacy z konsoli trzy liczby i wypisujaacy na ekranie najwieksza z nich. Mozna uzyc
+    // najwyzej dwóch if-ów (bez fraz else lub else if).
     findMax();
 
-    // task05
-    // Napisz program wczytujacy liczby całkowite az do pojawienia sie zera i wypisujacy na ekranie ile razy znak dwóch
-    // kolejno wczytanych liczb był rózny.
+    // V. Napisz program wczytujacy liczby całkowite az do pojawienia sie zera i wypisujacy na ekranie ile razy znak
+    // dwóch kolejno wczytanych liczb był rózny.
     signNumberChangeCounter();
 
-    // task06
-    // Wykorzystujac mozliwosc definiowania typu wylicznikowego napisz program pozwalajacy uzytkownikowi wybrac kolor
-    // nadwozia dla dwóch samochodów: Forda T i Lexusa.
+    // VI. Wykorzystujac mozliwosc definiowania typu wylicznikowego napisz program pozwalajacy uzytkownikowi wybrac
+    // kolor nadwozia dla dwóch samochodów: Forda T i Lexusa.
     selectCarColor();
 
-    // task07
-    // Nalezy napisac program, który wczyta wartosc z klawiatury i przechowa ja w zmiennej wrt. Nastepnie uzywajac
+    // VII. Nalezy napisac program, który wczyta wartosc z klawiatury i przechowa ja w zmiennej wrt. Nastepnie uzywajac
     // wszystkich znanych rodzajów petli wyswietli na ekranie napis “Hello” powtarzajac go tyle razy ile okresla
     // wartosc wrt. Program bedzie nieskonczenie powtarzał powyzsze operacje. Nalezy zadbac aby zapis wszystkich petli
     // był optymalnie skondensowany.
