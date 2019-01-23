@@ -21,6 +21,8 @@ int isPalindrom(char word[100]);
 char **split(char *sentence);
 
 
+void printWords(char **pString, int i);
+
 /**
  * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
  */
@@ -74,7 +76,7 @@ int main() {
     char word[100];
     cout << "Type word: ";
     cin >> word;
-    cout << "Word " << word << " is" << (isPalindrom(word) ? "" : "n't") << " palindrome";
+    cout << "Word " << word << " is" << (isPalindrom(word) ? "" : "n't") << " palindrome" << endl;
 
     //IX. Dany jest wskaznik do ciagu znaków “Ala ma kota, a kot ma ale”. Napisz program przedstawiajacy działanie
     // funkcji która:
@@ -83,8 +85,9 @@ int main() {
     // wszystkie wyrazy przechowa w oddzielnej tablicy słów zwracanej jako wynik funkcji.
     // W całym programie mozna wykorzystywac jedynie funkcje zaimplementowane przez siebie, ponadto do tablic mozna
     // odwołac sie jedynie za pomoca wskazników.
-    char sentence[100] = "Ala na kota, a kot ma ale";
+    char sentence[100] = "Ala ma kota, a kot ma ale";
     char **words = split(sentence);
+    printWords(words, 7);
 }
 
 void pointersToVariable() {
@@ -168,19 +171,28 @@ int isPalindrom(char word[100]) {
 }
 
 char **split(char *sentence) {
-    //IX. Dany jest wskaznik do ciagu znaków “Ala ma kota, a kot ma ale”. Napisz program przedstawiajacy działanie
-    // funkcji która:
-    // podzieli ciag na wyrazy,
-    // kazdy z wyrazów przechowa w oddzielnej tablicy znaków,
-    // wszystkie wyrazy przechowa w oddzielnej tablicy słów zwracanej jako wynik funkcji.
-    // W całym programie mozna wykorzystywac jedynie funkcje zaimplementowane przez siebie, ponadto do tablic mozna
-    // odwołac sie jedynie za pomoca wskazników.
+    static char *result[6]{};
+    int i = 0;
 
-    char result[10][10];
-    char *ptr1 = sentence;
-    while (*ptr1) {
-        if (*ptr1 == ' ' || *ptr1 == ',') {
+    *(result + i++) = *&sentence;
 
-        }
+    while (*sentence) {
+        if (*sentence == ' ') {
+            *sentence = '\0';
+            sentence++;
+            *(result + i++) = *&sentence;
+        } else if (*sentence == ',') {
+            *sentence = '\0';
+            sentence++;
+        } else
+            sentence++;
+    }
+
+    return result;
+}
+
+void printWords(char **pString, int size) {
+    for (int i = 0; i < size; i++) {
+        cout << pString[i] << endl;
     }
 }
