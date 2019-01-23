@@ -20,8 +20,7 @@ int isPalindrom(char word[100]);
 
 char **split(char *sentence);
 
-
-void printWords(char **pString, int i);
+void printWords(char **pString, int size);
 
 /**
  * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
@@ -193,6 +192,6 @@ char **split(char *sentence) {
 
 void printWords(char **pString, int size) {
     for (int i = 0; i < size; i++) {
-        cout << pString[i] << endl;
+        cout << *(pString + i) << endl;
     }
 }
