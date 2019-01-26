@@ -2,25 +2,25 @@
 
 using std::cout, std::endl, std::cin;
 
-void pointersToVariable();
+void pointers_to_variable();
 
-void pointersToPointers();
+void pointers_to_pointers();
 
 void fruits();
 
 void fantasmagoria();
 
-int stringLength(const char *tab);
+int string_length(const char *tab);
 
-void doublesDistances();
+void doubles_distances();
 
 long mystrlen(char *tab);
 
-int isPalindrom(char word[100]);
+int is_palindrom(char *word);
 
 char **split(char *sentence);
 
-void printWords(char **pString, int size);
+void print_words(char **word, int size);
 
 /**
  * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
@@ -44,11 +44,11 @@ int main() {
 
     //II. Przedstaw program w którym dwa wskazniki (ptr1 i ptr2) beda pokazywały te sama zmienna. Nastepnie zmodyfikuj
     // wartosc wskazywana przez zmienna ptr1 i wyswietl zmienna i wartosci wskazywane przez wskazniki.
-    pointersToVariable();
+    pointers_to_variable();
 
     //III. Zadeklaruj zmienna typu int o nazwie wrt, wskaznik do zmiennej wrt o nazwie ptr1 i wskaznik do zmiennej ptr1
     // o nazwie ptr2. Wyswietl wartosci i stany wszystkich utworzonych zmiennych.
-    pointersToPointers();
+    pointers_to_pointers();
 
     //IV. Zadeklaruj typ wyliczeniowy opisujacy owoce, natepnie przedstaw deklaracje zmiennych, ich inicjacje
     // i wyswietlenie wartosci.
@@ -63,7 +63,7 @@ int main() {
     // dla kazdego znaku z wprowadzonego ciagu znajdzie wszystkie kolejne wystapienia znaków o tej samej wartosci,
     // utworzy do nich wskazniki i wypisze na ekran odległosci w postaci:
     //  a0 - a11 -> odległosc 5.
-    doublesDistances();
+    doubles_distances();
 
     //VII. Zaimplementuj funkcje int mystrlen(char*) zwracajaca długosc dostarczonego ciagu znaków. Program powinien
     // przedstawiac wykorzystanie arytmetyki wskazników.
@@ -75,7 +75,7 @@ int main() {
     char word[100];
     cout << "Type word: ";
     cin >> word;
-    cout << "Word " << word << " is" << (isPalindrom(word) ? "" : "n't") << " palindrome" << endl;
+    cout << "Word " << word << " is" << (is_palindrom(word) ? "" : "n't") << " palindrome" << endl;
 
     //IX. Dany jest wskaznik do ciagu znaków “Ala ma kota, a kot ma ale”. Napisz program przedstawiajacy działanie
     // funkcji która:
@@ -86,10 +86,10 @@ int main() {
     // odwołac sie jedynie za pomoca wskazników.
     char sentence[100] = "Ala ma kota, a kot ma ale";
     char **words = split(sentence);
-    printWords(words, 7);
+    print_words(words, 7);
 }
 
-void pointersToVariable() {
+void pointers_to_variable() {
     int wrt = 2;
     int *ptr1 = &wrt;
     int *ptr2 = &wrt;
@@ -99,7 +99,7 @@ void pointersToVariable() {
     cout << "value " << wrt << " - pointer1 " << *ptr1 << " & pointer2 " << *ptr2 << endl;
 }
 
-void pointersToPointers() {
+void pointers_to_pointers() {
     int wrt = 2;
     int *ptr1 = &wrt;
     int **ptr2 = &ptr1;
@@ -124,19 +124,19 @@ void fruits() {
 void fantasmagoria() {
     char tab[14] = "fantasmagoria";
     char *ptr1 = tab;
-    char *ptr2 = tab + stringLength(tab) - 1;
+    char *ptr2 = tab + string_length(tab) - 1;
 
     cout << "ptr1: " << ptr1 << "; ptr2: " << ptr2 << endl;
     cout << "ptr2 - ptr1: " << ptr2 - ptr1;
 }
 
-int stringLength(const char *tab) {
-    int charCounter = 0;
-    while (tab[charCounter++]);
-    return --charCounter;
+int string_length(const char *tab) {
+    int char_counter = 0;
+    while (tab[char_counter++]);
+    return --char_counter;
 }
 
-void doublesDistances() { // TODO learn
+void doubles_distances() { // TODO learn
     char tab[100];
     cout << "Type chars (max 100): ";
     cin >> tab;
@@ -160,7 +160,7 @@ long mystrlen(char *tab) {
     return --temp - tab;
 }
 
-int isPalindrom(char word[100]) {
+int is_palindrom(char *word) {
     char *ptr = word + mystrlen(word) - 1;
     do
         if (*word != *ptr)
@@ -190,8 +190,8 @@ char **split(char *sentence) {
     return result;
 }
 
-void printWords(char **pString, int size) {
+void print_words(char **word, int size) {
     for (int i = 0; i < size; i++) {
-        cout << *(pString + i) << endl;
+        cout << *(word + i) << endl;
     }
 }

@@ -11,17 +11,17 @@ struct Element {
     Element *next;
 };
 
-Element *getNewElement();
+Element *get_new_element();
 
 void insert(Element *element);
 
 void show();
 
-void sortedStricts();
+void sorted_stricts();
 
-void insertAndSort(Element *pElement);
+void insert_and_sort(Element *element);
 
-void structVsClass();
+void struct_vs_class();
 
 /**
  * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
@@ -47,13 +47,13 @@ int main() {
     structs();
 
     //III. Wykorzystujac rezultat poprzedniego zadania zadbaj, aby dodawane Elementy były sortowane rosnaco.
-    sortedStricts();
+    sorted_stricts();
 
     //IV. Zadeklaruj typy złozone z pól char* imie, int wiek i bool plec wykorzystujac:
     // technike tworzenia struktur,
     // technike tworzenia klas.
     //  Nastepnie utwórz obiekty tych typów i odwołaj sie do ich pól. Jaka jest róznica pomiedzy tymi odwołaniami?
-    structVsClass();
+    struct_vs_class();
 }
 
 void unions() {
@@ -73,24 +73,24 @@ void unions() {
 
 void structs() {
     cout << "How many elements will be added?" << endl;
-    int elementNumber;
-    cin >> elementNumber;
+    int element_number;
+    cin >> element_number;
 
-    for (int i = 0; i < elementNumber; i++) {
-        Element *newElement = getNewElement();
-        insert(newElement);
+    for (int i = 0; i < element_number; i++) {
+        Element *new_element = get_new_element();
+        insert(new_element);
         show();
     }
 }
 
 Element *lista = 0;
 
-Element *getNewElement() {
+Element *get_new_element() {
     cout << "Type element name: " << endl;
-    char *inputData = new char[20];
-    cin >> inputData;
+    char *input_data = new char[20];
+    cin >> input_data;
 
-    Element *element = new Element{inputData, 0};
+    Element *element = new Element{input_data, 0};
 
     return element;
 }
@@ -99,11 +99,11 @@ void insert(Element *element) {
     if (lista == 0) {
         lista = element;
     } else {
-        Element *lastElement = lista;
-        while (lastElement->next != 0) {
-            lastElement = lastElement->next;
+        Element *last_element = lista;
+        while (last_element->next != 0) {
+            last_element = last_element->next;
         }
-        lastElement->next = element;
+        last_element->next = element;
     }
 }
 
@@ -117,19 +117,19 @@ void show() {
     }
 }
 
-void sortedStricts() {
+void sorted_stricts() {
     cout << "How many elements will be added and sorted?" << endl;
-    int elementNumber;
-    cin >> elementNumber;
+    int element_number;
+    cin >> element_number;
 
-    for (int i = 0; i < elementNumber; i++) {
-        Element *newElement = getNewElement();
-        insertAndSort(newElement);
+    for (int i = 0; i < element_number; i++) {
+        Element *new_element = get_new_element();
+        insert_and_sort(new_element);
         show();
     }
 }
 
-void insertAndSort(Element *element) {
+void insert_and_sort(Element *element) {
     if (lista == 0) {
         lista = element;
     } else if (lista->next == 0) {
@@ -145,39 +145,39 @@ void insertAndSort(Element *element) {
         lista = element;
         element->next = tmp;
     } else {
-        Element *lastElement = lista->next;
+        Element *last_element = lista->next;
         Element *previous = lista;
 
-        while (lastElement->next != 0 && *(lastElement->imie) > *(element->imie)) {
+        while (last_element->next != 0 && *(last_element->imie) > *(element->imie)) {
             previous = previous->next;
-            lastElement = lastElement->next;
+            last_element = last_element->next;
         }
 
-        if (lastElement->next == 0 && *(lastElement->imie) > *(element->imie)) {
-            lastElement->next = element;
+        if (last_element->next == 0 && *(last_element->imie) > *(element->imie)) {
+            last_element->next = element;
         } else {
             previous->next = element;
-            element->next = lastElement;
+            element->next = last_element;
         }
     }
 }
 
-void structVsClass() {
-    struct OsobaStruct {
+void struct_vs_class() {
+    struct Osoba_struct {
         char imie[20];
         int wiek;
         bool plec;
     };
 
-    class OsobaClass {
+    class Osoba_class {
     public:
         char imie[20];
         int wiek;
         bool plec;
     };
 
-    OsobaStruct Magda = {"Magda", 26, true};
-    OsobaClass Lukasz = {"Lukasz", 26, false};
+    Osoba_struct Magda = {"Magda", 26, true};
+    Osoba_class Lukasz = {"Lukasz", 26, false};
 
     cout << Magda.imie << " " << Magda.wiek << endl;
     cout << "Kobieta? " << Magda.plec << endl;

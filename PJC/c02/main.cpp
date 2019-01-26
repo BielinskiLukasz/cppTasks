@@ -4,21 +4,21 @@ using std::cout, std::endl, std::cin;
 
 void comment();
 
-void findMax();
+void find_max();
 
 int max(int num1, int num2, int num3);
 
-void signNumberChangeCounter();
+void sign_number_change_counter();
 
-void selectCarColor();
+void select_car_color();
 
-enum colorLexus {
+enum color_lexus {
     black = 1, red, green, blue, white
 };
 
-enum colorLexus selectColor();
+enum color_lexus select_color();
 
-void helloInLoops();
+void hello_in_loops();
 
 /**
  * Dany utwór powstał w wyniku realizowania procesu edukacyjnego w PJATK.
@@ -44,21 +44,21 @@ int main() {
 
     //IV. Napisz program wczytujacy z konsoli trzy liczby i wypisujaacy na ekranie najwieksza z nich. Mozna uzyc
     // najwyzej dwóch if-ów (bez fraz else lub else if).
-    findMax();
+    find_max();
 
     //V. Napisz program wczytujacy liczby całkowite az do pojawienia sie zera i wypisujacy na ekranie ile razy znak
     // dwóch kolejno wczytanych liczb był rózny.
-    signNumberChangeCounter();
+    sign_number_change_counter();
 
     //VI. Wykorzystujac mozliwosc definiowania typu wylicznikowego napisz program pozwalajacy uzytkownikowi wybrac
     // kolor nadwozia dla dwóch samochodów: Forda T i Lexusa.
-    selectCarColor();
+    select_car_color();
 
     //VII. Nalezy napisac program, który wczyta wartosc z klawiatury i przechowa ja w zmiennej wrt. Nastepnie uzywajac
     // wszystkich znanych rodzajów petli wyswietli na ekranie napis “Hello” powtarzajac go tyle razy ile okresla
     // wartosc wrt. Program bedzie nieskonczenie powtarzał powyzsze operacje. Nalezy zadbac aby zapis wszystkich petli
     // był optymalnie skondensowany.
-    helloInLoops();
+    hello_in_loops();
 }
 
 void comment() {
@@ -69,7 +69,7 @@ void comment() {
 #endif
 }
 
-void findMax() {
+void find_max() {
     int num1, num2, num3;
     cout << "Type 3 integers: ";
     cin >> num1 >> num2 >> num3;
@@ -84,31 +84,31 @@ int max(int num1, int num2, int num3) {
     return tmp;
 }
 
-void signNumberChangeCounter() {
-    double newReal = 0, oldReal = 0;
+void sign_number_change_counter() {
+    double new_real = 0, old_real = 0;
     int counter = 0;
     do {
         cout << "Type real numbers (0 number will end stream): ";
-        if (oldReal / newReal < 0) counter++;
-        oldReal = newReal;
-        cin >> newReal;
-    } while (newReal);
+        if (old_real / new_real < 0) counter++;
+        old_real = new_real;
+        cin >> new_real;
+    } while (new_real);
 
     cout << "Number sigh change " << counter << " times" << endl;
 }
 
-void selectCarColor() { // TODO learn!!!
-    enum colorFordT {
+void select_car_color() { // TODO learn!!!
+    enum color_ford_t {
         black
     } fordT = black;
 
-    enum colorLexus lexus;
-    lexus = selectColor();
+    enum color_lexus lexus;
+    lexus = select_color();
 
     cout << "FordT - " << fordT << "; Lexus - " << lexus << endl;
 }
 
-enum colorLexus selectColor() {
+enum color_lexus select_color() {
     int choose;
 
     do {
@@ -137,7 +137,7 @@ enum colorLexus selectColor() {
     } while (!choose);
 }
 
-void helloInLoops() {
+void hello_in_loops() {
     int wrt;
     cout << "Type how many hello must print each loop: ";
     cin >> wrt;

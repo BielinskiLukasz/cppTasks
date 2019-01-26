@@ -4,21 +4,21 @@ using std::cout, std::endl, std::cin;
 
 void arrays();
 
-void show(int *tab[3], int tabSize, int innerTabSize);
+void show(int *tab[3], int tab_size, int inner_tab_size);
 
-void pointerAndReference();
+void pointer_and_reference();
 
-void dynamicArray();
+void dynamic_array();
 
 long mystrlen(char *tab);
 
-void copyArray(const char *src, char *des, int size);
+void copy_array(const char *src, char *des, int size);
 
-void multipleWords();
+void multiple_words();
 
-void printWords(char **, int);
+void print_words(char **, int);
 
-void intFun();
+void int_fun();
 
 void fun1(int wtr);
 
@@ -26,7 +26,7 @@ void fun2(int *wtr);
 
 void fun3(int &wtr);
 
-void charFun();
+void char_fun();
 
 void fun(char &arg1, char *arg2);
 
@@ -43,18 +43,18 @@ int main() {
     // utwórz odnosnik do zdefiniowanego wskaznika. Nastepnie przygotuj dwuelementowa tablice, której elementami beda
     // wskazniki na przygotowany wskaznik i odnosnik. Wreszcie wypisz na ekran wartosc zmiennej int posługujac sie
     // zadeklarowana tablica.
-    pointerAndReference();
+    pointer_and_reference();
 
     //III. Dana jest globalna tablica zmiennych typu char o rozmiarze 100 elementów i nazwie inputData. Uzywajac
     // operatora cin wprowadzamy do tej tablicy ciag znaków. Nastepnie okreslamy ilosc wprowadzonych znaków i tworzymy
     // dedykowana, dynamicznie tworzona tablice o rozmiarze dopasowanym do długosci wprowadzonego słowa.
-    dynamicArray();
+    dynamic_array();
 
     //IV. Program z poprzedniego punktu nalezy wzbogacic o dynamicznie tworzona tablice przechowujaca wskazniki
     // do wszystkich wprowadzonych słów. Wprowadzenie kolejnego słowa bedzie skutkowac wyswietleniem wszystkich
     // wprowadzonych do tej pory słów. Jezeli w tablicy brakuje miejsca na kolejne słowa nalezy zwiekszyc rozmiar
     // dotychczasowej tablicy dwukrotnie.
-    multipleWords();
+    multiple_words();
 
     //V. Utwórz funkcje fun1, fun2 i fun3, które jako parametr beda przyjmowac odpowiednio int, wskaznik i odnosnik.
     // Celem wszystkich funkcji bedzie wyswietlenie wartosci dostarczonych jako parametry, inkrementacja tych wartosci
@@ -64,12 +64,12 @@ int main() {
     // wyswietl jej wartosc na ekran,
     // wywołaj funkcje fun1, fun2 i fun3 dostarczajac jako parametr wrt,
     // ponownie wyswietl wartosc zmiennej wrt.2
-    intFun();
+    int_fun();
 
     //VI. Funkcja fun otrzyma jako parametry char& i char* do dwóch ciagów znaków. Zadaniem tej funkcji bedzie
     // znalezienie najdłuzszego podciagu. Jako wynik wyswietlone zostana wskazniki na poczatek i koniec najdłuzszego
     // podciagu.
-    charFun();
+    char_fun();
 }
 
 void arrays() {
@@ -82,15 +82,15 @@ void arrays() {
     show(tab, 3, 3);
 }
 
-void show(int *tab[3], int tabSize, int innerTabSize) {
-    for (int i = 0; i < tabSize; i++) {
-        for (int j = 0; j < innerTabSize; j++) {
+void show(int *tab[3], int tab_size, int inner_tab_size) {
+    for (int i = 0; i < tab_size; i++) {
+        for (int j = 0; j < inner_tab_size; j++) {
             cout << *(*(tab + i) + j) << endl;
         }
     }
 }
 
-void pointerAndReference() { // TODO learn
+void pointer_and_reference() { // TODO learn
     int i = 5;
     int *ptr = &i;
     int *&ref = ptr;
@@ -101,16 +101,16 @@ void pointerAndReference() { // TODO learn
          << ***(tab + 1) << endl;
 }
 
-void dynamicArray() {
-    char inputData[100];
+void dynamic_array() {
+    char input_data[100];
     cout << "Input data: " << endl;
-    cin >> inputData;
-    long arraySize = mystrlen(inputData);
+    cin >> input_data;
+    long array_size = mystrlen(input_data);
 
-    char *dynamicTab = new char[arraySize + 1];
-    copyArray(inputData, dynamicTab, arraySize);
-    cout << dynamicTab << endl;
-    delete[] dynamicTab;
+    char *dynamic_tab = new char[array_size + 1];
+    copy_array(input_data, dynamic_tab, array_size);
+    cout << dynamic_tab << endl;
+    delete[] dynamic_tab;
 }
 
 long mystrlen(char *tab) {
@@ -119,58 +119,58 @@ long mystrlen(char *tab) {
     return --temp - tab;
 }
 
-void copyArray(const char *src, char *des, int size) {
+void copy_array(const char *src, char *des, int size) {
     for (int i = 0; i < size; i++) {
         *(des + i) = *(src + i);
     }
     *(des + size) = '\0';
 }
 
-void multipleWords() {
-    int dynamicTabOfTabsSize = 1;
-    char **dynamicTabOfTabs = new char *[dynamicTabOfTabsSize];
+void multiple_words() {
+    int dynamic_tab_of_tabs_size = 1;
+    char **dynamic_tab_of_tabs = new char *[dynamic_tab_of_tabs_size];
 
-    int wordsCounter = 0;
-    char inputData[100];
+    int words_counter = 0;
+    char input_data[100];
     cout << "Input data: " << endl;
-    cin >> inputData;
+    cin >> input_data;
 
-    while (*inputData != '0') {
-        long arraySize = mystrlen(inputData);
+    while (*input_data != '0') {
+        long arraySize = mystrlen(input_data);
 
-        char *dynamicTab = new char[arraySize + 1];
-        copyArray(inputData, dynamicTab, arraySize);
+        char *dynamic_tab = new char[arraySize + 1];
+        copy_array(input_data, dynamic_tab, arraySize);
 
-        if (wordsCounter >= dynamicTabOfTabsSize) {
-            dynamicTabOfTabsSize *= 2;
-            char **newTab = new char *[dynamicTabOfTabsSize];
-            for (int i = 0; i < dynamicTabOfTabsSize / 2; i++)
-                newTab[i] = dynamicTabOfTabs[i];
-            delete[] dynamicTabOfTabs;
-            dynamicTabOfTabs = newTab;
+        if (words_counter >= dynamic_tab_of_tabs_size) {
+            dynamic_tab_of_tabs_size *= 2;
+            char **newTab = new char *[dynamic_tab_of_tabs_size];
+            for (int i = 0; i < dynamic_tab_of_tabs_size / 2; i++)
+                newTab[i] = dynamic_tab_of_tabs[i];
+            delete[] dynamic_tab_of_tabs;
+            dynamic_tab_of_tabs = newTab;
         }
-        dynamicTabOfTabs[wordsCounter++] = dynamicTab;
-        printWords(dynamicTabOfTabs, wordsCounter);
+        dynamic_tab_of_tabs[words_counter++] = dynamic_tab;
+        print_words(dynamic_tab_of_tabs, words_counter);
 
         cout << "Input data: " << endl;
-        cin >> inputData;
+        cin >> input_data;
     }
 
-    cout << "Array size " << dynamicTabOfTabsSize << endl
-         << "words in " << wordsCounter;
-    for (int i = 0; i < wordsCounter; i++) {
-        delete dynamicTabOfTabs[i];
+    cout << "Array size " << dynamic_tab_of_tabs_size << endl
+         << "words in " << words_counter;
+    for (int i = 0; i < words_counter; i++) {
+        delete dynamic_tab_of_tabs[i];
     }
-    delete[] dynamicTabOfTabs;
+    delete[] dynamic_tab_of_tabs;
 }
 
-void printWords(char **words, int counter) {
+void print_words(char **words, int counter) {
     for (int i = 0; i < counter; i++) {
         cout << words[i] << endl;
     }
 }
 
-void intFun() {
+void int_fun() {
     int wtr = 0;
     cout << "Before " << wtr << endl;
     fun1(wtr);
@@ -199,26 +199,26 @@ void fun3(int &wtr) {
     cout << "fun3 after " << wtr << endl;
 }
 
-void charFun() {
-    char *shortSentence = "It's short, isn't it?";
-    char *longSentence = "It's long sentence, isn't it?";
+void char_fun() {
+    char *short_sentence = "It's short, isn't it?";
+    char *long_sentence = "It's long sentence, isn't it?";
 
-    fun(*shortSentence, longSentence);
+    fun(*short_sentence, long_sentence);
 }
 
 void fun(char &arg1, char *arg2) {
-    long arg1Length = mystrlen(&arg1);
-    cout << "Size of first arg is " << arg1Length << endl;
-    long arg2Length = mystrlen(arg2);
-    cout << "Size of second arg is " << arg2Length << endl;
+    long arg1_length = mystrlen(&arg1);
+    cout << "Size of first arg is " << arg1_length << endl;
+    long arg2_length = mystrlen(arg2);
+    cout << "Size of second arg is " << arg2_length << endl;
 
-    char *longestSentence = arg1Length > arg2Length ? &arg1 : arg2;
-    long longestSize = arg1Length > arg2Length ? arg1Length : arg2Length;
+    char *longest_sentence = arg1_length > arg2_length ? &arg1 : arg2;
+    long longest_size = arg1_length > arg2_length ? arg1_length : arg2_length;
 
-    char *startOfLongestSentence = longestSentence;
-    char *endOfLongestSentence = (longestSentence + longestSize - 1);
+    char *start_of_longest_sentence = longest_sentence;
+    char *end_of_longest_sentence = (longest_sentence + longest_size - 1);
 
-    cout << "Longest sentence is " << longestSentence << " with size " << longestSize << endl
-         << "Starts: " << startOfLongestSentence << endl
-         << "Ends: " << endOfLongestSentence << endl;
+    cout << "Longest sentence is " << longest_sentence << " with size " << longest_size << endl
+         << "Starts: " << start_of_longest_sentence << endl
+         << "Ends: " << end_of_longest_sentence << endl;
 }
