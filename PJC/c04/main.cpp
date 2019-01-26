@@ -70,7 +70,6 @@ int main() {
     // znalezienie najdłuzszego podciagu. Jako wynik wyswietlone zostana wskazniki na poczatek i koniec najdłuzszego
     // podciagu.
     charFun();
-
 }
 
 void arrays() {
@@ -201,9 +200,6 @@ void fun3(int &wtr) {
 }
 
 void charFun() {
-    //VI. Funkcja fun otrzyma jako parametry char& i char* do dwóch ciagów znaków. Zadaniem tej funkcji bedzie
-    // znalezienie najdłuzszego podciagu. Jako wynik wyswietlone zostana wskazniki na poczatek i koniec najdłuzszego
-    // podciagu.
     char *shortSentence = "It's short, isn't it?";
     char *longSentence = "It's long sentence, isn't it?";
 
